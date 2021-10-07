@@ -187,57 +187,171 @@ Find all the info you need in the man-pages. Make sure to comment the commands y
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ The free command
+### ✅ The free command
 
 *Describe in your own words what the `free` command does. Give an example and a partial output.*
 
-### ❌ The id command
+example: free
 
-*Describe in your own words what the `id` command does. Give an example and a partial output.*
+Displays the amount of free and used memory in the system. It also displays the total memory.
 
-### ❌ The tree command
+```bash
+                total        used        free      shared  buff/cache   available
+  Mem:       16694516     8166488     8298676       17720      229352     8394296
+  Swap:      50331648       96808    50234840
+```
 
-*Describe in your own words what the `tree` command does. How do you list all subdirectories too? How can you only include directories? If the `tree` command is not available on your system you can install it using `sudo apt install tree`*
+### ✅ The id command
 
-### ❌ The which command
+
+
+prints the user and group information of the given user or the current user when no user is given.
+
+example: id or id lukas
+
+```bash
+uid=1000(lukas) gid=1000(lukas) groups=1000(lukas),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev)
+```
+
+### ✅ The tree command
+
+
+
+tree will print a list of the contents of directories in a tree format.
+
+example: tree -a, -a makes it so that all files are printed
+```bash
+├── .bash_history
+├── .bash_logout
+├── .bashrc
+├── .landscape
+│   └── sysinfo.log
+├── .lesshst
+├── .motd_shown
+├── .profile
+└── .sudo_as_admin_successful
+```
+
+### ✅ The which command
 
 *Describe in your own words what the `which` command does. What is the result for `pwd` ?*
 
-### ❌ The file command
+which prints where a command is located
+
+```bash
+/usr/bin/pwd
+```
+
+### ✅ The file command
 
 *Describe in your own words what the `file` command does. What is the result for `~/.bashrc` ?*
 
-### ❌ The type command
+file while determine what the type is of a given file
+
+```bash
+/home/lukas/.bashrc: ASCII text
+```
+
+### ✅ The type command
 
 *Describe in your own words what the `type` command does. What is the result for `ls` and what is the result for `g++` ?*
 
-### ❌ Counting lines and words
+type will print how the given name would be interpreted if used as a command name.
+
+```bash
+ls is aliased to `ls --color=auto'
+```
+
+```bash
+g++ is /usr/bin/g++
+```
+
+### ✅ Counting lines and words
 
 *What command can be used to count lines and words in text? Give an example and explain the output.*
 
-### ❌ The wget command
+the wc command is used.
+
+```bash
+12 2100 11198 /proc/cpuinfo
+```
+
+### ✅ The wget command
 
 *How can you download a file from the Internet using the command line?. Find a file online to use it on and demonstrate its usage.*
 
-### ❌ The dmesg command
+This is done using the wget command.
+
+```bash
+wget github.com
+--2021-09-30 13:13:35--  http://github.com/
+Resolving github.com (github.com)... 140.82.121.4
+Connecting to github.com (github.com)|140.82.121.4|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://github.com/ [following]
+--2021-09-30 13:13:35--  https://github.com/
+Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+index.html                             [ <=>                                                          ] 233.66K  --.-KB/s    in 0.1s
+
+2021-09-30 13:13:36 (2.33 MB/s) - ‘index.html’ saved [239269]
+```
+
+### ✅ The dmesg command
 
 *Describe in your own words what the `dmesg` command does. Give an example and a partial output.*
 
-### ❌ Checksums
+With the dmesg you can print or control the kernel ring buffer
+
+example: dmesg or dmesg -H
+
+```bash
+[Sep30 12:46]  Microsoft 4.4.0-19041.1237-Microsoft 4.4.35
+[  +0.065911] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/drive
+[  +0.000004] : 19
+[  +0.000074] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/lib
+[  +0.000003] 19
+```
+
+###  Checksums
 
 *Go to the website of Raspberry Pi - [https://www.raspberrypi.org/software/operating-systems](https://www.raspberrypi.org/software/operating-systems) and download the Raspberry Pi OS image using the `wget` command line tool. Now check if the SHA-256 checksum complies with the one being advertised on the website.*
 
 *What tool did you use to calculate the checksum? Demonstrate its usage.*
 
+```bash
+lukas@LAPTOP-DI68M2BB:~$ cksum ./2021-05-07-raspios-buster-armhf-lite.zip
+
+1779386885 465662909 ./2021-05-07-raspios-buster-armhf-lite.zip
+
+
+lukas@LAPTOP-DI68M2BB:~$ shasum ./2021-05-07-raspios-buster-armhf-lite.zip
+
+5e402402984b4f9216b2a3eff1f830d169afd4ea  ./2021-05-07-raspios-buster-armhf-lite.zip
+
+The advertised hash is c5dad159a2775c687e9281b1a0e586f7471690ae28f2f2282c90e7d59f64273c this is not the same.
+```
+
 *What is the use of this hash?*
 
-### ❌ The printenv command
+A hash is used to verify that data is not modified, tampered or corrupted. This can be used to make sure that a hacker cant change your download link without you realising.
+
+
+### ✅ The printenv command
 
 *Describe in your own words what the `printenv` command does.*
 
-### ❌ IP Address
+printenv will print the full environment or a part of it.
+
+
+### ✅ IP Address
 
 *Find the IP address of your WiFi interface. What command did you use?*
+
+The ip addr command is used to find your ip address
 
 ### ❌ IP of Sivir Server
 
