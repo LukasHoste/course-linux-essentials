@@ -288,7 +288,7 @@ It prints a cow that says a string given by the user
                 ||     ||
 ```
 
-###  Nmap
+###  Nmap (op pi of linux laptop doen)
 
 *Install the `nmap` package using `apt`.*
 
@@ -297,6 +297,7 @@ It prints a cow that says a string given by the user
 ### ✅ NodeJS
 
 *Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
+
 
 *Now launch node and tryout the following little code snippet:*
 
@@ -308,6 +309,13 @@ console.log("Hello World from JavaScript");
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
 
-### ❌ MQTT
+### ✅ MQTT
 
 *Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*
+
+
+
+```bash
+sudo apt install mosquitto-clients
+mosquitto_pub --topic linux/students -h mqtt.devbit.be -m "Lukas Hoste"
+```

@@ -353,8 +353,11 @@ printenv will print the full environment or a part of it.
 
 The ip addr command is used to find your ip address
 
-### ❌ IP of Sivir Server
+### ✅ IP of Sivir Server
 
 *What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
 
-wachtwoord: Dr@@dloos!
+
+dig +short sivir.devbit.be
+
+The ip address is 172.16.10.5
