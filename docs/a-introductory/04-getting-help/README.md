@@ -356,3 +356,5 @@ The ip addr command is used to find your ip address
 ### ❌ IP of Sivir Server
 
 *What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
+
+wachtwoord: Dr@@dloos!
