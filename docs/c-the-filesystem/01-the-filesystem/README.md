@@ -693,9 +693,13 @@ Change: 2021-10-16 17:22:49.397779770 +0200
  Birth: -
 ```
 
-### ❌ No space for spaces
+### ✅ No space for spaces
 
 *Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
+
+The command creates a second and a try file.
+
+A file with a space can be created using touch "second try"
 
 ### ❌ The root
 
