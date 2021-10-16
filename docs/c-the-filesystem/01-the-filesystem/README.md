@@ -634,21 +634,64 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Authentication Log
+### ✅ Authentication Log
 
 *There is a file on the system that logs authentication changes and failures. Can you guess where it can be found? Provide the path to the file.*
 
-### ❌ Apt Source List
+The file is found at /var/log/auth.log
+
+### ✅ Apt Source List
 
 *The apt tool uses a configuration file which specifies in which repositories it should look for packages. Its called the apt `sources.list` file. Can you guess where it can be found? Provide the path to the file.*
 
-### ❌ Tmp Filesystem
+/etc/apt/sources.list
+
+### ✅ Tmp Filesystem
 
 *Create a file called `hello` in `/tmp`. Restart your linux distro using `reboot`. Where is the file? What happened?*
 
-### ❌ Timestamps
+```bash
+touch hello
+ls
+lulu@lulu-Ubuntu:/tmp$ ls
+config-err-bWHjP6                                                                   systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-logind.service-IhaoRg
+hello <---------------                                                                             systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-resolved.service-VdlgHf
+snap.snap-store                                                                     systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-timesyncd.service-rF1lSe
+ssh-dZtE1X2lKMPj                                                                    systemd-private-aac965fcf8d24a74bd5346b306d51b88-upower.service-A6PIXh
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-colord.service-qWYVMh              Temp-262b7314-4555-4952-a0c8-d30cf6880fe7
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-fwupd.service-83nxxi               tracker-extract-files.1000
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-ModemManager.service-bXDVCg        tracker-extract-files.125
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-switcheroo-control.service-F0dVhj
+
+ls
+lulu@lulu-Ubuntu:/tmp$ ls
+config-err-bWHjP6                                                                   systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-hostnamed.service-hvNqvg
+snap.snap-store                                                                     systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-localed.service-tpr9Mg
+ssh-dZtE1X2lKMPj                                                                    systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-logind.service-IhaoRg
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-colord.service-qWYVMh              systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-resolved.service-VdlgHf
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-fprintd.service-oCd67h             systemd-private-aac965fcf8d24a74bd5346b306d51b88-systemd-timesyncd.service-rF1lSe
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-fwupd.service-83nxxi               systemd-private-aac965fcf8d24a74bd5346b306d51b88-upower.service-A6PIXh
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-ModemManager.service-bXDVCg        tracker-extract-files.1000
+systemd-private-aac965fcf8d24a74bd5346b306d51b88-switcheroo-control.service-F0dVhj  tracker-extract-files.125
+```
+
+The file is gone as it was created in tmp. This directory contains temporary files which are thus deleted on reboot.
+
+### ✅ Timestamps
 
 *Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
+
+```bash
+lulu@lulu-Ubuntu:~$ stat first-of-many 
+  File: first-of-many
+  Size: 28        	Blocks: 8          IO Block: 4096   regular file
+Device: 812h/2066d	Inode: 6423471     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/    lulu)   Gid: ( 1000/    lulu)
+Access: 2021-10-16 17:22:49.397779770 +0200
+Modify: 2021-10-16 17:22:49.397779770 +0200
+Change: 2021-10-16 17:22:49.397779770 +0200
+ Birth: -
+```
 
 ### ❌ No space for spaces
 

@@ -411,9 +411,14 @@ false will not output a message that the user does not have shell access and jus
 
 ###  The auth.log file (does not exist on wsl)
 
-*What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
+*What does the file `/var/log/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
 
+It tracks user logins and authentication machinsm that were used.
+```bash
+sudo su barry
 
+Oct 16 17:03:16 lulu-Ubuntu su: pam_unix(su:session): session opened for user barry by (uid=0)
+```
 
 ### ✅ Locking out Steve
 
