@@ -697,24 +697,36 @@ Change: 2021-10-16 17:22:49.397779770 +0200
 
 *Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
 
-The command creates a second and a try file.
+The command creates a second and a try file because the terminal sees a space as a special character that seperates arguments.
 
 A file with a space can be created using touch "second try"
 
-### ❌ The root
+### ✅ The root
 
 *Try to create a directory `/backups` (under the root of the filesystem). Why is it failing?*
 
+The user does not have the needed permissions.
+
 *Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
 
-### ❌ Bash RC
+No the user does not have the permission to create a file in this directory. The user only has the permission to read the directory.
+
+### ✅ Bash RC
 
 *In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
 
-### ❌ Sym Linking
+```bash
+cp .bashrc .bashrc.bak
+```
+
+### ✅ Sym Linking
 
 *What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
 
-### ❌ SD Card
+ln is used to create a link between files. When using the cat secrets command the contents of /etc/passwd are displayed. The two filenames now point to the same file.
+
+### ✅ SD Card
 
 *Plugin an SD Card or a USB stick into you computer. Where can we find the actual block device? Where is the filesystem mounted? What is the difference between these two?*
+
+The block device can be found in the dev directory. The filesystem is mounted in the media directory. As a block device the data is stored in data blocks, while in the filesystem the data is organized as files with a hierarchy.
