@@ -672,10 +672,32 @@ key=$(curl -s https://github.com/${githubName}.keys)
 echo ${key}
 ```
 
-### ❌ DHCP Traffic 
+### ✅ DHCP Traffic 
 <!-- Dit gaat niet werken met wsl -->
 
 *Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
+
+```bash
+#!/usr/bin/env bash
+hostname=""
+ip=""
+mac=""
+rm devices
+touch /home/lulu/Documents/devices
+file=/home/lulu/Documents/devices
+
+sudo tcpdump -l -i enp2s0f1 port 67 or port 68 -vv | while read b; do
+    hostname=$(echo ${b} | grep "Hostname")
+    ip=$(echo ${b} | grep "Requested-IP")
+    mac=$(echo -e ${b} | grep "Client-ID")
+
+        echo ${hostname} >> ${file}
+        echo ${ip} >> ${file}
+        echo ${mac} >> ${file}
+done
+```
+
+This script will add all detected devices ip mac and hosname to a file. It will however add it twice. I tried using grep to detect if a file already contained the new ip address to fix this but this would not work. I also tried using the cut command to get rid of everything but the actual hostname, ip, mac but this also didn't work.
 
 ### ✅ Backups
 
