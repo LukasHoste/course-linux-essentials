@@ -698,7 +698,29 @@ sudo tcpdump -l -i enp2s0f1 port 67 or port 68 -vv | while read b; do
 done
 ```
 
-This script will add all detected devices ip mac and hosname to a file. It will however add it twice. Due to the fact that i cant change the variables inside the wile loop globally i was not able to filter on the type of dhcp message.
+```bash
+#!/usr/bin/env bash
+readfile=/home/lulu/Documents/devices
+writefile=/home/lulu/Documents/devices_write
+
+
+while true; do
+> ${writefile}
+# This is needed to put the required info on one line so that it can be grepped easier
+while read line; do
+    if echo ${line} | grep -q '"'; then
+        echo "${line} " >> ${writefile}
+    else 
+        echo -n "${line} " >> ${writefile}
+    fi
+done < ${readfile}
+grep "Request" ${writefile} | cut -d " " -f2,3,4,5
+echo ""
+sleep 5
+done
+```
+
+These two scripts need to be run at the same time. The first script will filter the tcpdump command and put it in a file. The second file will put all the acquired info on one line and then display all the request info. (When a request packet is received we can be almost sure that the ip address will come in use).
 
 ### ✅ Backups
 
