@@ -219,7 +219,7 @@ uid=1000(lukas) gid=1000(lukas) groups=1000(lukas),4(adm),20(dialout),24(cdrom),
 
 tree will print a list of the contents of directories in a tree format.
 
-example: tree -a, -a makes it so that all files are printed
+example: tree -a, -a makes it so that all files are printed, use -R to list all subdirectories.
 ```bash
 ├── .bash_history
 ├── .bash_logout
