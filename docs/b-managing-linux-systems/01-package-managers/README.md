@@ -305,7 +305,7 @@ It prints a cow that says a string given by the user
 console.log("Hello World from JavaScript");
 ```
 
-### ❌ Dhcpdump
+### ✅ Dhcpdump
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
 
