@@ -672,10 +672,55 @@ key=$(curl -s https://github.com/${githubName}.keys)
 echo ${key}
 ```
 
-### ❌ DHCP Traffic 
+### ✅ DHCP Traffic 
 <!-- Dit gaat niet werken met wsl -->
 
 *Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
+
+```bash
+#!/usr/bin/env bash
+touch /home/lulu/Documents/devices_tmp
+file_tmp=/home/lulu/Documents/devices_tmp
+touch /home/lulu/Documents/devices
+file=/home/lulu/Documents/devices
+> ${file_tmp}
+
+sudo tcpdump -l -i enp2s0f1 port 67 or port 68 -vv | while read b; do
+    type=$(echo ${b} | grep "DHCP-Message Option 53" | cut -d ":" -f2)
+    hostname=$(echo ${b} | grep "Hostname" | cut -d ":" -f2)
+    ip=$(echo ${b} | grep "Requested-IP" | cut -d ":" -f2)
+    mac=$(echo ${b} | grep "Client-ID" | cut -d ":" -f2,3,4,5,6,7)
+    echo ${hostname} >> ${file_tmp}
+    echo ${ip} >> ${file_tmp}
+    echo ${mac} >> ${file_tmp}
+    # gets rid of all the blank space
+    grep . ${file_tmp} > ${file}
+done
+```
+
+```bash
+#!/usr/bin/env bash
+readfile=/home/lulu/Documents/devices
+writefile=/home/lulu/Documents/devices_write
+
+
+while true; do
+> ${writefile}
+# This is needed to put the required info on one line so that it can be grepped easier
+while read line; do
+    if echo ${line} | grep -q '"'; then
+        echo "${line} " >> ${writefile}
+    else 
+        echo -n "${line} " >> ${writefile}
+    fi
+done < ${readfile}
+grep "Request" ${writefile} | cut -d " " -f2,3,4,5
+echo ""
+sleep 5
+done
+```
+
+These two scripts need to be run at the same time. The first script will filter the tcpdump command and put it in a file. The second file will put all the acquired info on one line and then display all the request info. (When a request packet is received we can be almost sure that the ip address will come in use).
 
 ### ✅ Backups
 

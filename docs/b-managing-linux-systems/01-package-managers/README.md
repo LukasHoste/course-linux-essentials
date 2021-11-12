@@ -309,6 +309,101 @@ console.log("Hello World from JavaScript");
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
 
+```bash
+  TIME: 2021-10-30 12:12:47.260
+    IP: 0.0.0.0 (30:9c:23:9b:9c:c8) > 255.255.255.255 (ff:ff:ff:ff:ff:ff)
+    OP: 1 (BOOTPREQUEST)
+ HTYPE: 1 (Ethernet)
+  HLEN: 6
+  HOPS: 0
+   XID: 04e26402
+  SECS: 0
+ FLAGS: 0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 30:9c:23:9b:9c:c8:00:00:00:00:00:00:00:00:00:00
+ SNAME: .
+ FNAME: .
+OPTION:  53 (  1) DHCP message type         1 (DHCPDISCOVER)
+OPTION:  61 (  7) Client-identifier         01:30:9c:23:9b:9c:c8
+OPTION:  50 (  4) Request IP address        192.168.1.44
+OPTION:  12 ( 15) Host name                 DESKTOP-MNPM7HR
+OPTION:  60 (  8) Vendor class identifier   MSFT 5.0
+OPTION:  55 ( 14) Parameter Request List      1 (Subnet mask)
+					      3 (Routers)
+					      6 (DNS server)
+					     15 (Domainname)
+					     31 (Perform router discovery)
+					     33 (Static route)
+					     43 (Vendor specific info)
+					     44 (NetBIOS name server)
+					     46 (NetBIOS node type)
+					     47 (NetBIOS scope)
+					    119 (Domain Search)
+					    121 (Classless Static Route)
+					    249 (MSFT - Classless route)
+					    252 (MSFT - WinSock Proxy Auto Detect)
+					    
+---------------------------------------------------------------------------
+
+  TIME: 2021-10-30 12:12:50.276
+    IP: 0.0.0.0 (30:9c:23:9b:9c:c8) > 255.255.255.255 (ff:ff:ff:ff:ff:ff)
+    OP: 1 (BOOTPREQUEST)
+ HTYPE: 1 (Ethernet)
+  HLEN: 6
+  HOPS: 0
+   XID: 04e26402
+  SECS: 0
+ FLAGS: 0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 30:9c:23:9b:9c:c8:00:00:00:00:00:00:00:00:00:00
+ SNAME: .
+ FNAME: .
+OPTION:  53 (  1) DHCP message type         3 (DHCPREQUEST)
+OPTION:  61 (  7) Client-identifier         01:30:9c:23:9b:9c:c8
+OPTION:  50 (  4) Request IP address        192.168.1.44
+OPTION:  54 (  4) Server identifier         192.168.1.1
+OPTION:  12 ( 15) Host name                 DESKTOP-MNPM7HR
+OPTION:  81 ( 18) Client FQDN               0-0-0 DESKTOP-MNPM7HR
+OPTION:  60 (  8) Vendor class identifier   MSFT 5.0
+OPTION:  55 ( 14) Parameter Request List      1 (Subnet mask)
+					      3 (Routers)
+					      6 (DNS server)
+					     15 (Domainname)
+					     31 (Perform router discovery)
+					     33 (Static route)
+					     43 (Vendor specific info)
+					     44 (NetBIOS name server)
+					     46 (NetBIOS node type)
+					     47 (NetBIOS scope)
+					    119 (Domain Search)
+					    121 (Classless Static Route)
+					    249 (MSFT - Classless route)
+					    252 (MSFT - WinSock Proxy Auto Detect)
+					    
+---------------------------------------------------------------------------
+```
+
+```text
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : lan
+   IPv6 Address. . . . . . . . . . . : 2a02:a03f:e138:1c00:99e8:fbbf:7914:b090
+   IPv6 Address. . . . . . . . . . . : fdef:dea:c75e:0:99e8:fbbf:7914:b090
+   Temporary IPv6 Address. . . . . . : 2a02:a03f:e138:1c00:e0a6:4c9e:5e8f:a618
+   Temporary IPv6 Address. . . . . . : fdef:dea:c75e:0:e0a6:4c9e:5e8f:a618
+   Link-local IPv6 Address . . . . . : fe80::99e8:fbbf:7914:b090%19
+   IPv4 Address. . . . . . . . . . . : 192.168.1.44
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::a6b1:e9ff:fea9:806c%19
+                                       192.168.1.1
+```
+
 ### ✅ MQTT
 
 *Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*
