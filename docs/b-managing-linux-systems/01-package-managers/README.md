@@ -288,7 +288,7 @@ It prints a cow that says a string given by the user
                 ||     ||
 ```
 
-###  Nmap (op pi of linux laptop doen)
+### ❌ Nmap (op pi of linux laptop doen)
 
 *Install the `nmap` package using `apt`.*
 
