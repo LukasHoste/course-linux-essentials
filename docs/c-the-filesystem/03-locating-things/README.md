@@ -280,7 +280,7 @@ locate ssh__config
 /usr/share/man/man5/ssh_config.5.gz
 
 locate auth.log
-cannot be found on wsl
+/var/log/auth.log
 ```
 
 ### ✅ Python man-pages
@@ -292,6 +292,7 @@ whereis -m python
 ```
 this command gives an empty output
 also when using whereis python the man page cannot be found.
+Even on an actual linux machine this cannot be found.
 
 ### ✅ Python man-pages
 
@@ -333,10 +334,16 @@ Make sure to redirect the `permission denied` errors to `/dev/null` for all sear
 
 *Find the file `kernel.log`.*
 
-cannot be found on wsl
+cannot be found on wsl, cannot be found on ubuntu machine either.
 
 ```bash
 find / -type f -name "kernel.log" 2>/dev/null
+
+might have to be kern.log
+
+find / -type f -name "kern.log" 2>/dev/null
+/var/log/kern.log
+/tmp/logs/kern.log
 ```
 
 #### ✅ .bashrc
@@ -365,14 +372,83 @@ find /etc -type f -name "*system*.conf" 2>/dev/null
 /etc/systemd/system.conf
 ```
 
-#### ❌ User Readable Files
+#### ✅ User Readable Files
 
 *What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
 
-#### ❌ Altered Log Files
+The -readable option can be used.
+
+The user barry has a barry-only directory in its home directory. If we make the file in this directory readable only with chmod 700 only-barry-can-see-this then we shouldn't be able to find the file.
+
+```bash
+lulu@lulu-Ubuntu:/home/barry/barry-only$ find /home/barry -type f 2>/dev/null
+/home/barry/.bash_logout
+/home/barry/.bashrc
+/home/barry/.profile
+/home/barry/.bash_history
+/home/barry/barry-only/only-barry-can-see-this
+
+lulu@lulu-Ubuntu:/home/barry/barry-only$ find /home/barry -type f -readable 2>/dev/null
+/home/barry/.bash_logout
+/home/barry/.bashrc
+/home/barry/.profile
+
+```
+
+#### ✅ Altered Log Files
 
 *Find all log files in `/var/log` that were modified in the last 24 hours. Make sure to only include files and not directories. Now extend the command to perform a long listing human readable `ls` for each file.*
 
-#### ❌ Steal All Logs
+```bash
+find /var/log -type f -mtime -1 2>/dev/null
+
+/var/log/apt/history.log
+/var/log/apt/eipp.log.xz
+/var/log/apt/term.log
+/var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1000.journal
+/var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1000@09f2979ca4194e7bad1b4b21b2401f2a-00000000000007cc-0005cff69d499052.journal
+/var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1001.journal
+/var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/system@efa4cb0dc7b64db1998af4a62a67b963-0000000000000001-0005cff69c112113.journal
+/var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/system.journal
+/var/log/alternatives.log
+/var/log/syslog
+/var/log/boot.log
+/var/log/dpkg.log
+/var/log/dmesg
+/var/log/ubuntu-advantage.log
+/var/log/gpu-manager-switch.log
+/var/log/cups/access_log
+/var/log/wtmp
+/var/log/gpu-manager.log
+/var/log/kern.log
+/var/log/auth.log
+
+find /var/log -type f -mtime -1 -exec ls -lh '{}' \; 2>/dev/null
+
+-rw-r--r-- 1 root root 119K Nov 14 12:12 /var/log/apt/history.log
+-rw-r--r-- 1 root root 62K Nov 14 12:12 /var/log/apt/eipp.log.xz
+-rw-r----- 1 root adm 85K Nov 14 12:12 /var/log/apt/term.log
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 14 14:16 /var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1000.journal
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 14 12:09 /var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1000@09f2979ca4194e7bad1b4b21b2401f2a-00000000000007cc-0005cff69d499052.journal
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 14 13:50 /var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/user-1001.journal
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 14 12:09 /var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/system@efa4cb0dc7b64db1998af4a62a67b963-0000000000000001-0005cff69c112113.journal
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 14 14:16 /var/log/journal/22f6a3fad92f4593b3a7c7f9df1a804a/system.journal
+-rw-r--r-- 1 root root 25K Nov 14 12:10 /var/log/alternatives.log
+-rw-r----- 1 syslog adm 4,5M Nov 14 14:16 /var/log/syslog
+-rw------- 1 root root 78K Nov 14 12:06 /var/log/boot.log
+-rw-r--r-- 1 root root 1010K Nov 14 12:12 /var/log/dpkg.log
+-rw-r--r-- 1 root adm 89K Nov 14 12:06 /var/log/dmesg
+-rw------- 1 root root 6,5K Nov 14 12:16 /var/log/ubuntu-advantage.log
+-rw-r--r-- 1 root root 2,8K Nov 14 13:40 /var/log/gpu-manager-switch.log
+-rw-r----- 1 root adm 8,6K Nov 14 14:11 /var/log/cups/access_log
+-rw-rw-r-- 1 root utmp 12K Nov 14 12:07 /var/log/wtmp
+-rw-r--r-- 1 root root 2,8K Nov 14 12:06 /var/log/gpu-manager.log
+-rw-r----- 1 syslog adm 1,5M Nov 14 13:40 /var/log/kern.log
+-rw-r----- 1 syslog adm 154K Nov 14 13:59 /var/log/auth.log
+```
+
+#### ✅ Steal All Logs
 
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
+
+find / -type f -name "*.log" -exec cp '{}' /tmp/logs \;  2>/dev/null
