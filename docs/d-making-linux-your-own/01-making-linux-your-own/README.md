@@ -414,17 +414,22 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Dotfiles
+### ✅ Dotfiles
 
 *Setup your own dotfiles. Make the repo public.*
 
-### ❌ Installation Script
+### ✅ Installation Script
 
 *Create an installation script for the tools and libraries you use most. Add the script to your dotfiles.*
 
-### ❌ neofetch
+### ✅ neofetch
 
 *Add neofetch to your install script.*
+```bash
+nano scripts/dev
+# add a line
+sudo apt install neofetch
+```
 
 ### ❌ @vue/cli
 
