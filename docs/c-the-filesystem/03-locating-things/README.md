@@ -452,3 +452,7 @@ find /var/log -type f -mtime -1 -exec ls -lh '{}' \; 2>/dev/null
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
 
 find / -type f -name "*.log" -exec cp '{}' /tmp/logs \;  2>/dev/null
+
+#### ❌ Markdown README files
+
+*Find all `README.md` files on your system. Can you make it so the case of the filename does not matter? In other words, you should also be able to find `readme.md`, `Readme.md`, `readme.MD`, ...*

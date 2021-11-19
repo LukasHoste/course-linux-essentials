@@ -6,7 +6,7 @@ module.exports = {
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course_linux_essentials/issues'},
-      {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
+      // {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
     ],
     sidebar: [
       {
@@ -48,15 +48,15 @@ module.exports = {
           '/c-the-filesystem/03-locating-things/',
         ]
       },
-      // {
-      //   title: 'Making Linux Your Own',   // required
-      //   path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/d-making-linux-your-own/01-making-linux-your-own/',
-      //   ]
-      // },
+      {
+        title: 'Making Linux Your Own',   // required
+        path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/d-making-linux-your-own/01-making-linux-your-own/',
+        ]
+      },
       // {
       //   title: 'Command Line Hacking',   // required
       //   path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
@@ -172,6 +172,15 @@ module.exports = {
     ['container', {
       type: 'insight',
       defaultTitle: 'Key Insight',
+    }],
+    ['vuepress-plugin-code-copy', {
+      // selector: String,
+      align: 'bottom',
+      // color: '#DC322F',
+      // backgroundTransition: Boolean,
+      // backgroundColor: String,
+      // successText: String,
+      staticIcon: true,
     }],
   ],
 }
