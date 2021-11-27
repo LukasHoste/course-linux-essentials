@@ -442,7 +442,7 @@ sudo apt-get install npm
 sudo npm -g install @vue/cl
 ```
 
-### ❌ Conda
+### ✅ Conda
 
 *Add conda and mbed to your installation script. Setup an mbed environment from the installation script.*
 
@@ -452,7 +452,7 @@ You can download and extract the GNU Arm Embedded Toolchain using the following 
 cd ~
 wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 tar -xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-mv gcc-arm-none-eabi-10-2020-q4-major gnu-arm-embedded
+mv gcc-arm-none-eabi-10-2020-q4-major gcc-arm-embedded
 rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 sudo mv gcc-arm-embedded /opt
 ```
@@ -461,6 +461,34 @@ sudo mv gcc-arm-embedded /opt
 
 *Make sure to add the `~/.mbed/.mbed` config file to your dotfiles.*
 
-### ❌ Alias for mbed
+```bash
+# miniconda
+cd ~
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+echo "export PATH='/home/lulu/miniconda3/bin:$PATH'" >> ~/.zshrc
+# gnu arm embedded toolchain
+cd ~
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
+tar -xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
+mv gcc-arm-none-eabi-10-2020-q4-major gcc-arm-embedded
+rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
+sudo mv gcc-arm-embedded /opt
+mbed config -G GCC_ARM_PATH /opt/gcc-arm-embedded/bin
+
+
+conda create -n mbed
+sudo apt install python3 python3-pip git mercurial -y
+python3 -m pip install mbed-cli
+mbed config -G GCC_ARM_PATH /opt/gcc-arm-embedded/bin
+```
+
+### ✅ Alias for mbed
  
 *Create an alias `mbedc` that compiles an mbed project, flashes the target and starts up the serial terminal at a baudrate of 115200.*
+
+add to the install script
+```bash
+sudo apt install screen -y
+```
