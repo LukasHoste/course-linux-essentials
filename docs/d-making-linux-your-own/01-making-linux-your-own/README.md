@@ -431,9 +431,16 @@ nano scripts/dev
 sudo apt install neofetch
 ```
 
-### ❌ @vue/cli
+### ✅ @vue/cli
 
 *Add @vue/cli as a global install to your script.*
+
+first install npm globally with apt-get and then insall vue/cli using npm install
+
+```bash
+sudo apt-get install npm
+sudo npm -g install @vue/cl
+```
 
 ### ❌ Conda
 
