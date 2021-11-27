@@ -4,9 +4,10 @@
 - IP: 172.16.103.211
 - MAC: ethernet: e4:5f:01:1d:73:b5 , wifi: e4:5f:01:1d:73:b6
 
-- statische ip: 172.16.240.5 /16
+- statische ip: 172.16.240.5 /16 default-gateway: 172.16.0.1
 
 ## user maken
+
 sudo adduser lulu
 sudo usermod -aG sudo lulu
 
