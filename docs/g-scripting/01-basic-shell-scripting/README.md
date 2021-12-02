@@ -685,14 +685,21 @@ touch /home/lulu/Documents/devices
 file=/home/lulu/Documents/devices
 > ${file_tmp}
 
-sudo tcpdump -l -i enp2s0f1 port 67 or port 68 -vv | while read b; do
+sudo tcpdump -l -n -i wlp3s0 port 67 or port 68 -vv | while read b; do
     type=$(echo ${b} | grep "DHCP-Message Option 53" | cut -d ":" -f2)
-    hostname=$(echo ${b} | grep "Hostname" | cut -d ":" -f2)
-    ip=$(echo ${b} | grep "Requested-IP" | cut -d ":" -f2)
     mac=$(echo ${b} | grep "Client-ID" | cut -d ":" -f2,3,4,5,6,7)
-    echo ${hostname} >> ${file_tmp}
-    echo ${ip} >> ${file_tmp}
+    ip=$(echo ${b} | grep "Requested-IP" | cut -d ":" -f2)
+    hostname=$(echo ${b} | grep "Hostname Option 12" | cut -d ":" -f2)
+    # echo ${type}
+    # echo ${mac}
+    # echo ${ip}
+    # echo ${hostname}
+
+
+    echo ${type} >> ${file_tmp}
     echo ${mac} >> ${file_tmp}
+    echo ${ip} >> ${file_tmp}
+    echo ${hostname} >> ${file_tmp}
     # gets rid of all the blank space
     grep . ${file_tmp} > ${file}
 done
@@ -708,14 +715,14 @@ while true; do
 > ${writefile}
 # This is needed to put the required info on one line so that it can be grepped easier
 while read line; do
-    if echo ${line} | grep -q '"'; then
+    if echo ${line} | grep -q '"'; then # hostname is at the end of the line so it checks if the last element is encountered and thus a new line has to be started
         echo "${line} " >> ${writefile}
     else 
         echo -n "${line} " >> ${writefile}
     fi
 done < ${readfile}
-grep "Request" ${writefile} | cut -d " " -f2,3,4,5
-echo ""
+grep "Request" ${writefile} | cut -d " " -f2,3,4,5 # Makes it so only request dhcp is printed to the terminal.
+echo "" # echos a blank line
 sleep 5
 done
 ```
