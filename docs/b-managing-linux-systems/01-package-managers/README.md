@@ -288,11 +288,25 @@ It prints a cow that says a string given by the user
                 ||     ||
 ```
 
-### ❌ Nmap (op pi of linux laptop doen)
+### ✅ Nmap (op pi of linux laptop doen)
 
 *Install the `nmap` package using `apt`.*
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
+
+```bash
+nmap sivir.devbit.be
+Starting Nmap 7.70 ( https://nmap.org ) at 2021-12-03 09:30 CET
+Nmap scan report for sivir.devbit.be (172.16.10.5)
+Host is up (0.00066s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 0.27 seconds
+```
+
+this machine has ssh services.
 
 ### ✅ NodeJS
 
