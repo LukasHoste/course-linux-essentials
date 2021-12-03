@@ -4,6 +4,7 @@
 
 install raspberry pi imager
 chosse os and storage and press write.
+press CTRL SHIFT X
 
 ## headless system and ssh | Ip from mac
 

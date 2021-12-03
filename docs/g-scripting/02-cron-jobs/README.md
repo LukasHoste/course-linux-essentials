@@ -136,14 +136,35 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ I am Alive
+### ✅ I am Alive
 
 *Create a cron-job that will publish a message to the `mqtt.devbit.be` broker on the topic `linux/alive/<yourname>` every 15th minute of the day. You can use the `mosquitto_pub` command for this.*
 
-### ❌ My IP
+```bash
+crontab -e
+*/15 * * * * mosquitto_pub --topic linux/alive -h mqtt.devbit.be -m "Lukas Hoste"
+```
+
+### ✅ My IP
 
 *Create a cron-job that will publish your raspberry pi's IP address to the `mqtt.devbit.be` broker on the topic `linux/ip/<yourname>` every minute. You can use the `mosquitto_pub` command for this.*
 
-### ❌ Backup Home
+```bash
+#!/usr/bin/env bash
+ip=$(ip -4 addr | grep eth0 | grep inet | cut -d " " -f6 | cut -d "/" -f1)
+mosquitto_pub --topic linux/alive -h mqtt.devbit.be -m ${ip}
+```
+
+```bash
+crontab -e
+*/15 * * * * /home/lulu/pi-script 
+```
+
+### ✅ Backup Home
 
 *Create a cron-job that will backup your user directory to a `tar.gz` archive file every day at a specific time. Choose the time yourself.*
+
+```bash
+crontab -e
+0 0 */1 * * tar -czvf "/tmp/home-backup.tar.gz" /home/lulu
+```
