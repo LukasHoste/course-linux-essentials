@@ -105,9 +105,9 @@ sudo adduser pi docker
 sudo systemctl enable docker
 sudo systemctl start docker
 
-## cron
+## cron post
 
-NOG NIET GEZIEN
+curl -X POST -d "stuff" site je pense
 
 ## creating dirs and files and setting up permissions and ownership
 
@@ -148,7 +148,8 @@ now=$(date '+%F_%H'h'-%M'm'-%S's'')
 tar -czvf "oefeningen_${now}.tar.gz" $HOME/oefeningen
 ```
 
-### cron
+### cron backups
 
-NOG NIET GEZIEN
+crontab -e
+0 0 */1 * * tar -czvf "/tmp/home-backup.tar.gz" /home/lulu
 
