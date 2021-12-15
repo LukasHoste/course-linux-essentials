@@ -407,13 +407,13 @@ sudo addgroup hackers --gid 1337
 
 *Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
 
-false will not output a message that the user does not have shell access and just a status code that indicates failure. Nologin will print a message to the terminal e.g. This account is currently not available.
+false will not output a message that the user does not have shell access but just a status code that indicates failure. Nologin will print a message to the terminal e.g. This account is currently not available.
 
-###  The auth.log file (does not exist on wsl)
+### ✅ The auth.log file (does not exist on wsl)
 
 *What does the file `/var/log/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
 
-It tracks user logins and authentication machinsm that were used.
+It tracks user logins and authentication mechanism that were used.
 ```bash
 sudo su barry
 
