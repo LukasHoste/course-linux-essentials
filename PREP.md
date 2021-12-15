@@ -56,7 +56,7 @@ sudo usermod -aG -group/groups- -user-
 
 ```text
 sudo passwd -l -name-
-usermod --expiredate 1 -name-
+sudo usermod --expiredate 1 -name-
 ```
 
 ## SSH using keys
