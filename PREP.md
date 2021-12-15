@@ -118,6 +118,8 @@ sudo ufw allow http
 cd /var/www/html
 ```
 
+To see if it is working go to the ip address of the device on another device.
+
 ## docker
 
 ```text
