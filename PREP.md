@@ -63,7 +63,7 @@ sudo usermod --expiredate 1 -name-
 
 ```text
 get the public key of your device (not the pi).
-On windows: cd ~/.ssh -> cat id_rsa.pub
+On windows: cd ~/.ssh -> cat id_rsa.pub same when using a linux machine
 copy this.
 connect to the pi using ssh -> (creat an ssh dir in the home dir) this should already exist.
 nano ~/.ssh/authorized_keys -> paste the key
