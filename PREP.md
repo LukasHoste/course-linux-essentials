@@ -35,7 +35,7 @@ gateway: can be found using route -n
 
 ```text
 sudo raspi-config
-network options -> hostname -> enter the hostname -> enter -> finish
+system options -> hostname -> enter the hostname -> enter -> finish
 reboot for changes to take effect
 ```
 
