@@ -13,8 +13,12 @@ raspberry as the ip but this most likely wont work.
 
 mac-address (ethernet): e4:5f:01:1d:73:b5
 To find out the ip we can use the command tcpdump -vvv -i -interface- | grep -mac-
+
+Or use dhcpfilter and dhcpecho scripts. Grep can be used on a script to find the device with the correct mac.
 Do this before plugging the ethernet cable into the pi as we want to
 intercept dhcp packets.
+
+default password is raspberry
 
 ## static ip
 
