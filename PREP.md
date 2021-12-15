@@ -129,6 +129,16 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
+### running docker
+
+```text
+basic: sudo docker run hello-world -> sudo docker stop hello-world
+sudo docker images to see installed images
+sudo docker ps to see running containers
+sudo docker run --detach --publish 4000:1880 --restart=always nodered/node-red
+docker update --restart=no <naam van container> om de automatische restart te stoppen
+```
+
 ## cron post
 
 curl -X POST -d "stuff" site je pense
