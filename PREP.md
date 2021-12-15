@@ -3,8 +3,9 @@
 ## flashing
 
 install raspberry pi imager
-chosse os and storage and press write.
-press CTRL SHIFT X
+press CTRL SHIFT X andedit ssh, wifi and hostname settings.
+choose os and storage and press write.
+
 
 ## headless system and ssh | Ip from mac
 
