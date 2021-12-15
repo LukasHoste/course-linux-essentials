@@ -160,7 +160,9 @@ permissions dir -> chmod -R if you want to change the permissions of everything 
 
 ```text
 sudo apt install git
-git clone (use the http if your devices key has not been added to github.com)
+ssh-keygen
+add the key on github
+git clone <ssh thingy>
 ```
 
 ## installing with apt
