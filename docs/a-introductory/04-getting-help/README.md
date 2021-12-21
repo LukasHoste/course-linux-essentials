@@ -246,7 +246,7 @@ which prints where a command is located
 
 *Describe in your own words what the `file` command does. What is the result for `~/.bashrc` ?*
 
-file while determine what the type is of a given file
+file whill determine what the type is of a given file
 
 ```bash
 /home/lukas/.bashrc: ASCII text
