@@ -303,7 +303,8 @@ ls -h makes it so that when the -s or -l options are used the file sizes are hum
 
 **Linux harbors some hidden files which are not automatically listed when executing `ls`. Find out how to list hidden files. How can we recognize hidden files?**
 
-hidden files can be printed by using ls -a or ls --all
+hidden files can be printed by using ls -a or ls --all, hidden files can be recognized by the . before the file name.
+For example .ssh/
 
 ### ✅ The man command
 
