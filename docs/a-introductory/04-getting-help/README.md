@@ -309,11 +309,27 @@ With the dmesg you can print or control the kernel ring buffer
 example: dmesg or dmesg -H
 
 ```bash
-[Sep30 12:46]  Microsoft 4.4.0-19041.1237-Microsoft 4.4.35
-[  +0.065911] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/drive
-[  +0.000004] : 19
-[  +0.000074] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/lib
-[  +0.000003] 19
+dmesg
+[    0.000000] microcode: microcode updated early to revision 0xea, date = 2021-01-06
+[    0.000000] Linux version 5.11.0-41-generic (buildd@lgw01-amd64-005) (gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #45~20.04.1-Ubuntu SMP Wed Nov 10 10:20:10 UTC 2021 (Ubuntu 5.11.0-41.45~20.04.1-generic 5.11.22)
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.11.0-41-generic root=UUID=7ecbd6f9-93b9-487d-9653-74dd6f8ae178 ro quiet splash vt.handoff=7
+[    0.000000] KERNEL supported cpus:
+[    0.000000]   Intel GenuineIntel
+[    0.000000]   AMD AuthenticAMD
+[    0.000000]   Hygon HygonGenuine
+[    0.000000]   Centaur CentaurHauls
+[    0.000000]   zhaoxin   Shanghai  
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x008: 'MPX bounds registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x010: 'MPX CSR'
+[    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+[    0.000000] x86/fpu: xstate_offset[3]:  832, xstate_sizes[3]:   64
+[    0.000000] x86/fpu: xstate_offset[4]:  896, xstate_sizes[4]:   64
+[    0.000000] x86/fpu: Enabled xstate features 0x1f, context size is 960 bytes, using 'compacted' format.
+[    0.000000] BIOS-provided physical RAM map:
+
 ```
 
 ### ✅ Checksums
