@@ -349,7 +349,7 @@ It prints a cow that says a string given by the user
                 ||     ||
 ```
 
-### ✅ Nmap (op pi of linux laptop doen)
+### ✅ Nmap
 
 *Install the `nmap` package using `apt`.*
 
@@ -372,6 +372,10 @@ this machine has ssh services.
 ### ✅ NodeJS
 
 *Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
+
+```text
+snap install node
+```
 
 
 *Now launch node and tryout the following little code snippet:*

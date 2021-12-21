@@ -444,8 +444,9 @@ su: Authentication failure
 ```bash
 sudo apt install zsh
 
-usermod --shell /bin/zsh lukas
+chsh -s /bin/zsh
 ```
+It might be necessary to reboot the system for the change to take effect.
 
 ### ✅ Semester Account
 
