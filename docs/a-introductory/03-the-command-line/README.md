@@ -297,7 +297,7 @@ The duration for which the terminal has been running is printed to the terminal
 
 **`ls` can be used to list the files and directories in Linux. If you execute the command `ls -h` you do not get any help about the command. How come? What does `ls -h` actually do?**
 
-ls -h does nothing, but ls --help prints information about commands to the terminal
+ls -h makes it so that when the -s or -l options are used the file sizes are human readable, but ls --help prints information about commands to the terminal
 
 ### ✅ Hidden files
 
