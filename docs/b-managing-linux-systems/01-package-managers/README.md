@@ -334,6 +334,8 @@ Mark challenges using a ✅ once they are finished.
 
 *Download the `.deb` package for `cowsay` and install it using `dpkg`. You can find the package at [https://packages.debian.org/sid/all/cowsay/download](https://packages.debian.org/sid/all/cowsay/download).*
 
+dpkg --install cowsay_3.03+dfsg2-8_all.deb
+
 *Run it once it's installed. What does it do ?*
 
 It prints a cow that says a string given by the user 
@@ -352,6 +354,8 @@ It prints a cow that says a string given by the user
 ### ✅ Nmap
 
 *Install the `nmap` package using `apt`.*
+
+sudo apt install nmap
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
 
@@ -374,6 +378,7 @@ this machine has ssh services.
 *Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
 
 ```text
+sudo apt install snap
 snap install node
 ```
 
