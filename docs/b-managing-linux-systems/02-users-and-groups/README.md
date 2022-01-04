@@ -401,8 +401,6 @@ sudo adduser jarno hackers
 sudo adduser matias hackers
 ```
 
-sudo addgroup hackers --gid 1337
-
 ### ✅ Difference false and nologin
 
 *Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
@@ -424,11 +422,22 @@ Oct 16 17:03:16 lulu-Ubuntu su: pam_unix(su:session): session opened for user ba
 
 *Create a new user steve and set a password for the user. Login to the `steve` account using `su` to make sure it works.*
 
-*Now lock the user account and make sure there is no way anyone can login as `steve`, not even `root`*
-
 ```bash
 sudo adduser steve
 
+sudo passwd steve
+New password:
+Retype new password:
+passwd: password updated successfully
+
+su steve
+Password:
+harry@LAPTOP-DI68M2BB:/home/lukas$
+```
+
+*Now lock the user account and make sure there is no way anyone can login as `steve`, not even `root`*
+
+```bash
 sudo passwd -l steve
 sudo usermod --expiredate 1 steve
 
