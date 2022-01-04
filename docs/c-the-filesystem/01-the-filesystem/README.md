@@ -682,7 +682,8 @@ The file is gone as it was created in tmp. This directory contains temporary fil
 *Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
 
 ```bash
-lulu@lulu-Ubuntu:~$ stat first-of-many 
+lulu@lulu-Ubuntu:~$ stat first-of-many
+ 
   File: first-of-many
   Size: 28        	Blocks: 8          IO Block: 4096   regular file
 Device: 812h/2066d	Inode: 6423471     Links: 1
